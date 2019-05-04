@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       // Associating Rank with Equipment
       // When an Rank is deleted, also delete any associated Equipment
       Rank.hasMany(models.Equipment, {
-        onDelete: "cascade"
+        onUpdate: "cascade"
       });
     };
   

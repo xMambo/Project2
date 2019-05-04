@@ -1,6 +1,6 @@
 // This is the model for all equipment assets
 module.exports = function(sequelize, DataTypes) {
-    var equipment = sequelize.define("equipment", {
+    var Equipment = sequelize.define("Equipment", {
       line: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -22,22 +22,27 @@ module.exports = function(sequelize, DataTypes) {
               len: [1]
           }
       },
-      workcenter_id: {
-          type: DataTypes.STRING,
+      welds_per_part: {
+          type: DataTypes.INTEGER,
           allowNull: false,
           validate: {
-              len: [1]
+              len: Number[1, 3]
           }
       },
     });
   
-    equipment.associate = function(models) {
+    Equipment.associate = function(models) {
       // We're saying that a equipment should belong to an Rank
       // A equipment can't be created without an Rank due to the foreign key constraint
-      equipment.belongsTo(models.Rank, {
+      Equipment.belongsTo(models.Rank, {
         foreignKey: {
           allowNull: false
         }
+      });
+      Equipment.belongsTo(models.Workcenter, {
+          foreignKey: {
+              allowNull: false
+          }
       });
     };
   
