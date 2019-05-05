@@ -1,8 +1,21 @@
 // this model is to set the weld count maximum based on the equipment usage ranking SR (safety, regulation) or G (general)
 module.exports = function(sequelize, DataTypes) {
   var Rank = sequelize.define("Rank", {
-    // Giving the Rank model a name of type STRING
-    name: DataTypes.STRING
+    // Giving the Rank model a rank of type STRING
+    rank: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    allowedWelds: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    }
   });
 
   Rank.associate = function(models) {
