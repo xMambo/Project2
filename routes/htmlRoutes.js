@@ -23,7 +23,13 @@ module.exports = function (app) {
   // render add inventory item page
   app.get("/add/", (req, res) => {
 
-    res.render("add")
+    res.render("add");
+
+  })
+
+  app.get("/runMaint/", (req, res) => {
+
+    res.render("runMaint");
 
   })
 

@@ -21,4 +21,44 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+
+  // route to reset current welds to 0
+app.put("/api/maintenance", (req, res) => {
+  db.IventoryItem.update(req.body,
+    {
+      where: {
+        id: req.body.id
+      }
+    }).then((result) => {
+      res.json(result)
+    })
+})
+
+  // GET route for getting all of the iventory items
+  app.get("/api/inventroy", function(req, res) {
+    var query = {};
+    if (req.query.author_id) {
+      query.invID = req.query.invID;
+    }
+    db.Post.findAll({
+      where: query
+    }).then((invItem) => {
+      res.json(invItem);
+    });
+  });
+
+  // Get route for retrieving a single inventory item
+  app.get("/api/inventory/:id", function(req, res) {
+    db.IventoryItem.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then((invItem) => {
+      console.log(invItem);
+      res.json(invItem);
+    });
+  });
+
+
+
 };
