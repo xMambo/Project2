@@ -36,7 +36,7 @@ module.exports = function(app) {
   });
 
   // GET route for getting all of the iventory items
-  app.get("/api/inventroy", function(req, res) {
+  app.get("/api/inventory", function(req, res) {
     var query = {};
     if (req.query.author_id) {
       query.invID = req.query.invID;

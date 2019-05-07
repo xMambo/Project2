@@ -23,8 +23,8 @@ module.exports = function(app) {
   });
 
   // render add inventory item page
-  app.get("/add/", function(req, res) {
-    res.render("add");
+  app.get("/updateProduction/", function(req, res) {
+    res.render("updateActualWelds");
   });
   // render run mainteance page
   app.get("/runMaint/", function(req, res) {
