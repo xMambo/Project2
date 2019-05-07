@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS equipmentPM_db;
+CREATE DATABASE equipmentPM_db;
