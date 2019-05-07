@@ -1,25 +1,15 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "Fhqwhgads1!",
-    "database": "exampledb",
-=======
-    "password": "DATABASE_PASSWORD",
-    "database": "DATABASE_NAME",
->>>>>>> 3a533349f7e75b19aa7ad889ce44a8f5249d3592
+    "database": "equipmentpm_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-<<<<<<< HEAD
     "password": "Fhqwhgads1!",
     "database": "testdb",
-=======
-    "password": "DATABASE_PASSWORD",
-    "database": "DATABASE_NAME",
->>>>>>> 3a533349f7e75b19aa7ad889ce44a8f5249d3592
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
