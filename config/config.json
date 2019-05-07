@@ -2,14 +2,14 @@
   "development": {
     "username": "root",
     "password": "DATABASE_PASSWORD",
-    "database": "DATABASE_NAME",
+    "database": "equipmentpm_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "DATABASE_PASSWORD",
-    "database": "DATABASE_NAME",
+    "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
