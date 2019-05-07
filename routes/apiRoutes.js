@@ -17,22 +17,23 @@ module.exports = function(app) {
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.json(dbExample);
     });
   });
 
   // route to reset current welds to 0
-app.put("/api/maintenance", (req, res) => {
-  db.IventoryItem.update(req.body,
-    {
+  app.put("/api/maintenance", function(req, res) {
+    db.IventoryItem.update(req.body, {
       where: {
         id: req.body.id
       }
-    }).then((result) => {
-      res.json(result)
-    })
-})
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
 
   // GET route for getting all of the iventory items
   app.get("/api/inventroy", function(req, res) {
@@ -42,7 +43,7 @@ app.put("/api/maintenance", (req, res) => {
     }
     db.Post.findAll({
       where: query
-    }).then((invItem) => {
+    }).then(function(invItem) {
       res.json(invItem);
     });
   });
@@ -53,12 +54,9 @@ app.put("/api/maintenance", (req, res) => {
       where: {
         id: req.params.id
       }
-    }).then((invItem) => {
+    }).then(function(invItem) {
       console.log(invItem);
       res.json(invItem);
     });
   });
-
-
-
 };
