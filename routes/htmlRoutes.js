@@ -26,7 +26,7 @@ module.exports = function(app) {
   app.get("/add/", function(req, res) {
     res.render("add");
   });
-
+  // render run mainteance page
   app.get("/runMaint/", function(req, res) {
     res.render("runMaint");
   });
