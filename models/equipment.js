@@ -26,6 +26,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     },
+    currentWeldCount: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     weldsPerDress: {
       type: DataTypes.INTEGER,
       allowNull: true
