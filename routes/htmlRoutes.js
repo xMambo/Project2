@@ -22,6 +22,10 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/charts", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/charts.html"));
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
