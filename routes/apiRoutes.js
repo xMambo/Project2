@@ -26,11 +26,16 @@ module.exports = function(app) {
 
   // route to reset current welds to 0
   app.put("/api/maintenance", function(req, res) {
-    db.IventoryItem.update(req.body, {
-      where: {
-        id: req.body.id
+    db.Equipment.update(
+      {
+        currentWeldCount: 0
+      },
+      {
+        where: {
+          id: req.body.id
+        }
       }
-    }).then(function(result) {
+    ).then(function(result) {
       res.json(result);
     });
   });
