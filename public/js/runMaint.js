@@ -6,15 +6,21 @@ function resetWelds() {
   event.preventDefault();
 
   var maintObj = {
-    id: $invID,
-    maintenanceDate: $maintDate,
-    currentWelds: 0
+    id: $invID.val(),
+    maintenanceDate: $maintDate.val()
   };
 
   $.ajax({
     method: "PUT",
     url: "/api/maintenance",
     data: maintObj
-  }).then(function() {});
+  })
+    .then(function(req, res) {
+      console.log(res);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
 }
+
 $runMaintButton.on("click", resetWelds);
