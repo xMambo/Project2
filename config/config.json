@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "788@IdmdemMdimdoc",
+    "password": "",
     "database": "equipmentpm_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "788@IdmdemMdimdoc",
+    "password": "",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
