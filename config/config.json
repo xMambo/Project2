@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "DATABASE_PASSWORD",
+    "password": "",
     "database": "equipmentpm_db",
     "host": "localhost",
     "dialect": "mysql"

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Update Actual Production numbers</h1>
+        <p class="lead">Fill out the form below to update the actual production numbers for the week.</p>
+    </div>
+    <form>
+        <div class="form-group">
+            <label for="InvID">Inventory id</label>
+            <input type="text" class="form-control invID" id="InvID" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="lineNum">Line Number</label>
+            <select class="form-control lineNum" id="lineNum">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="InvType">Inventory Type</label>
+            <input type="text" class="form-control invType" id="InvType" placeholder="">
+        </div>
+        <button type="submit" class="btn btn-primary addAcutalWeldButton">Add Item</button>
+    </form>
+</div>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/addInv.js"></script>
