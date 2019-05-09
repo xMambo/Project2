@@ -22,6 +22,15 @@ module.exports = function(app) {
     });
   });
 
+  // render add inventory item page
+  app.get("/updateProduction/", function(req, res) {
+    res.render("updateActualWelds");
+  });
+  // render run mainteance page
+  app.get("/runMaint/", function(req, res) {
+    res.render("runMaint");
+  });
+
   app.get("/charts", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/charts.html"));
   });
