@@ -1,13 +1,14 @@
 var $invID = $(".invID");
-var $maintDate = $(".maintDate");
-var $runMaintButton = $(".runMaintButton");
+var $lineNum = $(".lineNum");
+var $invType = $(".invType");
+var $addAcutalWeld = $(".addActualWeldButton");
 
-function resetWelds() {
+function inputActualNumbers() {
   event.preventDefault();
 
   var maintObj = {
     id: $invID.val(),
-    maintenanceDate: $maintDate.val()
+    lineNum: $lineNum.val(),
   };
 
   $.ajax({
@@ -23,4 +24,4 @@ function resetWelds() {
     });
 }
 
-$runMaintButton.on("click", resetWelds);
+$addAcutalWeld.on("click", inputActualNumbers);
