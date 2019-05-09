@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Rank = sequelize.define("Rank", {
     // Giving the Rank model a rank of type STRING
-    rank: {
+    rankValue: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
