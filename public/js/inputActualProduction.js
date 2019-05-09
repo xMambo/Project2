@@ -1,20 +1,19 @@
-var $invID = $(".invID");
-var $lineNum = $(".lineNum");
-var $invType = $(".invType");
-var $addAcutalWeld = $(".addActualWeldButton");
+var $workCenter = $(".workCenter");
+var $productionNum = $(".productionNum");
+var $addProductionNumber = $(".addProductionNumberButton");
 
 function inputActualNumbers() {
   event.preventDefault();
 
-  var maintObj = {
-    id: $invID.val(),
-    lineNum: $lineNum.val(),
+  var productionObj = {
+    Workcenter: $workCenter.val(),
+    actualProduction: $productionNum.val()
   };
 
   $.ajax({
     method: "PUT",
-    url: "/api/maintenance",
-    data: maintObj
+    url: "/api/updateProduction",
+    data: productionObj
   })
     .then(function(req, res) {
       console.log(res);
@@ -24,4 +23,4 @@ function inputActualNumbers() {
     });
 }
 
-$addAcutalWeld.on("click", inputActualNumbers);
+$addProductionNumber.on("click", inputActualNumbers);
