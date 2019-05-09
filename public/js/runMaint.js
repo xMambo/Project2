@@ -2,11 +2,19 @@ var $invID = $(".invID");
 var $maintDate = $(".maintDate");
 var $runMaintButton = $(".runMaintButton");
 
-var logItems = function() {
+function resetWelds() {
   event.preventDefault();
-  console.log("this works");
-  console.log($invID.val());
-  console.log($maintDate.val());
-};
 
-$runMaintButton.on("click", logItems);
+  var maintObj = {
+    id: $invID,
+    maintenanceDate: $maintDate,
+    currentWelds: 0
+  };
+
+  $.ajax({
+    method: "PUT",
+    url: "/api/maintenance",
+    data: maintObj
+  }).then(function() {});
+}
+$runMaintButton.on("click", resetWelds);
