@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Perform maintenance</h1>
+        <p class="lead">Fill out the form below to reset the current welds for a piece of equipment and create a new
+            entry in the maintenance logs.</p>
+    </div>
+    <form>
+        <div class="form-group">
+            <label for="InvID">Inventory id</label>
+            <input type="text" class="form-control invID" id="InvID" placeholder="">
+        </div>
+
+        <div class="form-group">
+            <label for="InvType">What date was the maintenance performed?</label>
+            <input type="text" class="form-control maintDate" id="maintDate" placeholder="MM/DD/YYYY">
+        </div>
+
+        <button type="submit" class="btn btn-primary addItem runMaintButton">Perform maintenance </button>
+    </form>
+</div>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/runMaint.js"></script>
