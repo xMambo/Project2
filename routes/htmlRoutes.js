@@ -6,6 +6,10 @@ module.exports = function(app) {
     res.render("index");
   });
 
+  app.get("/equipment/", function(req, res) {
+    res.render("equipment.html");
+  });
+
   // render add inventory item page
   app.get("/updateProduction/", function(req, res) {
     res.render("updateActualWelds");
