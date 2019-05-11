@@ -1,24 +1,100 @@
-<div class="container">
-    <div class="jumbotron">
-        <h1 class="display-4">Perform maintenance</h1>
-        <p class="lead">Fill out the form below to reset the current welds for a piece of equipment and create a new
-            entry in the maintenance logs.</p>
-    </div>
-    <form>
-        <div class="form-group">
-            <label for="InvID">Inventory id</label>
-            <input type="text" class="form-control invID" id="InvID" placeholder="">
-        </div>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/"><span class="fas fa-tools"></span> CMMS</a>
+    <input class="form-control form-control-dark w-100" style="visibility: hidden" type="text" placeholder="Search"
+        aria-label="Search">
+    <ul class="navbar-nav px-3">
 
-        <div class="form-group">
-            <label for="InvType">What date was the maintenance performed?</label>
-            <input type="text" class="form-control maintDate" id="maintDate" placeholder="MM/DD/YYYY">
-        </div>
+    </ul>
+</nav>
 
-        <button type="submit" class="btn btn-primary addItem runMaintButton">Perform maintenance </button>
-    </form>
-</div>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <span data-feather="home"></span>
+                            Upocming Work Orders <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item equipmentlink">
+                        <a class="nav-link" href="/equipment">
+                            <span data-feather="file"></span>
+                            Equipment List
+                        </a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="/charts">
+                            <span data-feather="bar-chart-2"></span>
+                            Charts
+                        </a>
+                    </li>
+                  
+
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Admin</span>
+                    <a class="d-flex align-items-center text-muted">
+                    </a>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/runmaint">
+                            <span data-feather="file-text"></span>
+                            Maintenance
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/updateproduction">
+                            <span data-feather="file-text"></span>
+                            Updates
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            Reports
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/runMaint.js"></script>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Upcoming Work Orders</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+
+                </div>
+            </div>
+            <div class="container">
+
+                <div class="jumbotron">
+                    <h1 class="display-4">Perform maintenance</h1>
+                    <p class="lead">Fill out the form below to reset the current welds for a piece of equipment and
+                        create a new
+                        entry in the maintenance logs.</p>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="InvID">Inventory id</label>
+                        <input type="text" class="form-control invID" id="InvID" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="InvType">What date was the maintenance performed?</label>
+                        <input type="text" class="form-control maintDate" id="maintDate" placeholder="MM/DD/YYYY">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary addItem runMaintButton">Perform maintenance </button>
+                </form>
+            </div>
+
+
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="/js/runMaint.js"></script>
