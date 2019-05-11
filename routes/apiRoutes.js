@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.put("/api/maintenance", function(req, res) {
     db.Equipment.update(
       {
-        currentWeldCount: 0,
+        currentWeldCount: 5,
         maintenanceDate: req.body.maintenanceDate
       },
       {
@@ -18,23 +18,54 @@ module.exports = function(app) {
     });
   });
 
-  // route to reset current welds to 0
+  // route to update actual production numbers
   app.put("/api/updateProduction", function(req, res) {
-    db.Equipment.update(
-      {},
+    var acutalNumbers = req.body.actualProduction;
+    var workcenter = req.body.workcenter;
+    db.Workcenter.update(
+      {
+        actualProduction: acutalNumbers
+      },
       {
         where: {
-          id: req.body.id
+          workcenter: workcenter
         }
       }
     ).then(function(result) {
+      db.Equipment.findAll({
+        where: {
+          WorkcenterId: 1
+        }
+      }).then(function(result) {
+        for (var i = 0; i < result.length; i++) {
+          console.log("welds per part: " + result[i].weldsPerPart);
+          console.log("actual: " + acutalNumbers);
+
+          var weldsPerPart = result[i].weldsPerPart;
+          var currentWelds = weldsPerPart * acutalNumbers;
+          console.log("newCount: " + currentWelds);
+
+          db.Equipment.update(
+            {
+              currentWeldCount: currentWelds
+            },
+            {
+              where: {
+                Id: i
+              }
+            }
+          );
+        }
+      });
       res.json(result);
     });
   });
 
   // GET route for getting all of the iventory items
   app.get("/api/equipment", function(req, res) {
-    db.Equipment.findAll({}).then(function(result) {
+    db.Equipment.findAll({
+      include: [db.Rank]
+    }).then(function(result) {
       res.json(result);
     });
   });

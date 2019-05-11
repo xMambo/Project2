@@ -4,7 +4,7 @@ var $runMaintButton = $(".runMaintButton");
 
 function resetWelds() {
   event.preventDefault();
-
+  console.log("this works");
   var maintObj = {
     id: $invID.val(),
     maintenanceDate: $maintDate.val()

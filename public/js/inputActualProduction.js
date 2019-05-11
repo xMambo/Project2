@@ -4,9 +4,10 @@ var $addProductionNumber = $(".addProductionNumberButton");
 
 function inputActualNumbers() {
   event.preventDefault();
+  console.log("this works");
 
   var productionObj = {
-    Workcenter: $workCenter.val(),
+    workcenter: $workCenter.val(),
     actualProduction: $productionNum.val()
   };
 
