@@ -1,8 +1,8 @@
 $.get("/api/equipment", function (data) {
   if (data.length !== 0) {
     for (var i = 0; i < data.length; i++) {
-      if (data[i].currentWeldCount >= 50000) {
-
+      if (data[i].Rank.allowedWelds - data[i].currentWeldCount <= 30000) {
+        console.log(data[i].Rank.allowedWelds - data[i].currentWeldCount);
         var newRow = $("<tr>");
 
         newRow.addClass("equipItem");
