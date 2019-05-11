@@ -114,24 +114,25 @@
                 for (var i in data) {
                     equipment.push(data[i].equipment);
                     currentWeldCount.push(data[i].currentWeldCount);
-                    allowedWelds.push(data[i].Rank.allowedWelds)
+                    allowedWelds.push(data[i].Rank.allowedWelds - data[i].currentWeldCount)
 
                 }
 
                 var chartdata = {
+                    type: "bar",
                     labels: equipment,
                     datasets: [{
 
                         //dataset one
-                        label: 'Operations log',
+                        label: 'Operations Log',
                         backgroundColor: '#EBCCD1', // red',
                         borderColor: 'rgba(200, 200, 200, 0.75)',
                         hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
                         hoverBorderColor: 'rgba(200, 200, 200, 1)',
                         data: currentWeldCount,
-
+                    },{
                         //dataset two
-                        label: 'Operations log',
+                        label: 'Amount Until Maintenance',
                         backgroundColor: '#D6E9C6', // green,
                         borderColor: 'rgba(200, 200, 200, 0.75)',
                         hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
@@ -164,7 +165,7 @@
                 });
             },
             error: function (data) {
-                console.log(data);
+                console.log(currentWeldCount);
             }
         });
     });
