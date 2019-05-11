@@ -21,3 +21,7 @@ $.get("/api/equipment", function(data) {
     }
   }
 });
+
+document.getElementByClass("equipmentlink").onclick = function() {
+  location.href = "/public/equipment.html";
+};

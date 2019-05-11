@@ -1,4 +1,5 @@
 var db = require("../models");
+const path = require('path');
 
 module.exports = function(app) {
   // Load index page
@@ -6,8 +7,8 @@ module.exports = function(app) {
     res.render("index");
   });
 
-  app.get("/equipment/", function(req, res) {
-    res.render("equipment.html");
+  app.get("/equipment", function(req, res) {
+    res.render("equipment");
   });
 
   // render add inventory item page
@@ -20,7 +21,7 @@ module.exports = function(app) {
   });
 
   app.get("/charts", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/charts.html"));
+    res.render("charts");
   });
 
   // Render 404 page for any unmatched routes
