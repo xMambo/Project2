@@ -1,21 +1,93 @@
-<div class="container">
-    <div class="jumbotron">
-        <h1 class="display-4">Update Actual Production numbers</h1>
-        <p class="lead">Fill out the form below to update the actual production numbers for the week.</p>
-    </div>
-    <form>
-        <div class="form-group">
-            <label for="InvID">Work Center</label>
-            <input type="text" class="form-control workCenter" id="workCenter" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="InvID">Acutal Production Number</label>
-            <input type="text" class="form-control productionNum" id="productionNum" placeholder="">
-        </div>
-        <button type="submit" class="btn btn-primary addProductionNumberButton">Update Production Numbers</button>
-    </form>
-</div>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/"><span class="fas fa-tools"></span> CMMS</a>
+    <input class="form-control form-control-dark w-100" style="visibility: hidden" type="text" placeholder="Search"
+        aria-label="Search">
+    <ul class="navbar-nav px-3">
+
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">
+                            <span data-feather="home"></span>
+                            Upocming Work Orders <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item equipmentlink">
+                        <a class="nav-link" href="/equipment">
+                            <span data-feather="file"></span>
+                            Equipment List
+                        </a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/charts">
+                            <span data-feather="bar-chart-2"></span>
+                            Charts
+                        </a>
+                    </li>
+                   
+
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Admin</span>
+                    <a class="d-flex align-items-center text-muted">
+                    </a>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/runmaint">
+                            <span data-feather="file-text"></span>
+                            Maintenance
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/updateproduction">
+                            <span data-feather="file-text"></span>
+                            Updates
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            Reports
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Upcoming Work Orders</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="jumbotron">
+                    <h1 class="display-4">Update Actual Production numbers</h1>
+                    <p class="lead">Fill out the form below to update the actual production numbers for the week.</p>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="InvID">Work Center</label>
+                        <input type="text" class="form-control workCenter" id="workCenter" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="InvID">Acutal Production Number</label>
+                        <input type="text" class="form-control productionNum" id="productionNum" placeholder="">
+                    </div>
+                    <button type="submit" class="btn btn-primary addProductionNumberButton">Update Production Numbers</button>
+                </form>
+            </div>
 
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/addInv.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="/js/addInv.js"></script>
