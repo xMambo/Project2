@@ -10,7 +10,6 @@ $.get("/api/equipment", function(data) {
       var equipType = data[i].equipType;
       var currentWeldCount = data[i].currentWeldCount;
       var allowedWelds = data[i].Rank.allowedWelds;
-      console.log(allowedWelds);
 
       $(newRow).append(
         "<td>" + line + 
@@ -18,8 +17,9 @@ $.get("/api/equipment", function(data) {
         "<td>" + equipType + 
         "<td>" + currentWeldCount +
         "<td>" + allowedWelds);
-
-      $("tbody").append(newRow);
+        $("tbody").append(newRow);
+        console.log(data);
+        
     }
   }
 });

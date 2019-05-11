@@ -11,11 +11,16 @@
   },
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
+    "chart": "^0.1.2",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
     "mysql2": "^1.6.4",
-    "sequelize": "^4.43.2"
+    "sequelize": "^4.43.2",
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "chai": "^4.1.2",

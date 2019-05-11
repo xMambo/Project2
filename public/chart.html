@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ChartJS - BarGraph</title>
+  <style type="text/css">
+    #chart-container {
+      width: auto;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+  <div id="chart-container">
+    <canvas id="mycanvas"></canvas>
+  </div>
+</body>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $.ajax({
+      url: "http://localhost:3000/api/equipment",
+      method: "GET",
+      success: function (data) {
+        console.log(data);
+        var equipment = [];
+        var currentWeldCount = [];
+        var allowedWelds = [];
+
+        for (var i in data) {
+          equipment.push(data[i].equipment);
+          currentWeldCount.push(data[i].currentWeldCount);
+          allowedWelds.push(data[i].Rank.allowedWelds)
+
+        }
+
+        var chartdata = {
+          labels: equipment,
+          datasets: [{
+
+            //dataset one
+            label: 'Operations log',
+            backgroundColor: '#EBCCD1', // red',
+            borderColor: 'rgba(200, 200, 200, 0.75)',
+            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+            hoverBorderColor: 'rgba(200, 200, 200, 1)',
+            data: currentWeldCount,
+
+            //dataset two
+            label: 'Operations log',
+            backgroundColor: '#D6E9C6', // green,
+            borderColor: 'rgba(200, 200, 200, 0.75)',
+            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+            hoverBorderColor: 'rgba(200, 200, 200, 1)',
+            data: allowedWelds
+          }]
+        };
+
+        var ctx = $("#mycanvas");
+
+        var barGraph = new Chart(ctx, {
+          type: 'bar',
+          data: chartdata,
+          options: {
+            scales: {
+              yAxes: [{
+                stacked: true,
+                ticks: {
+                  beginAtZero: true
+                }
+              }],
+              xAxes: [{
+                stacked: true,
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+      },
+      error: function (data) {
+        console.log(data);
+      }
+    });
+  });
+</script>
+
+
+
+
+</html>
