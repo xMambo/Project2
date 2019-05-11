@@ -1,25 +1,28 @@
-$.get("/api/equipment", function(data) {
+$.get("/api/equipment", function (data) {
   if (data.length !== 0) {
-    for (var i = 0; i < 6; i++) {
-      var newRow = $("<tr>");
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].currentWeldCount > 50000) {
 
-      newRow.addClass("equipItem");
+        var newRow = $("<tr>");
 
-      var line = data[i].id;
-      var equipment = data[i].equipment;
-      var equipType = data[i].equipType;
-      var currentWeldCount = data[i].currentWeldCount;
-      var allowedWelds = data[i].Rank.allowedWelds;
+        newRow.addClass("equipItem");
 
-      $(newRow).append(
-        "<td>" + line + 
-        "<td>" + equipment + 
-        "<td>" + equipType + 
-        "<td>" + currentWeldCount +
-        "<td>" + allowedWelds);
+        var line = data[i].id;
+        var equipment = data[i].equipment;
+        var equipType = data[i].equipType;
+        var currentWeldCount = data[i].currentWeldCount;
+        var allowedWelds = data[i].Rank.allowedWelds;
+
+        $(newRow).append(
+          "<td>" + line +
+          "<td>" + equipment +
+          "<td>" + equipType +
+          "<td>" + currentWeldCount +
+          "<td>" + allowedWelds);
         $("tbody").append(newRow);
         console.log(data);
-        
+      }
+
     }
   }
 });
