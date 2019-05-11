@@ -9,19 +9,17 @@ $.get("/api/equipment", function(data) {
       var equipment = data[i].equipment;
       var equipType = data[i].equipType;
       var currentWeldCount = data[i].currentWeldCount;
-      console.log(line);
+      var allowedWelds = data[i].Rank.allowedWelds;
+      console.log(allowedWelds);
 
       $(newRow).append(
         "<td>" + line + 
         "<td>" + equipment + 
         "<td>" + equipType + 
-        "<td>" + currentWeldCount);
+        "<td>" + currentWeldCount +
+        "<td>" + allowedWelds);
 
       $("tbody").append(newRow);
     }
   }
 });
-
-document.getElementByClass("equipmentlink").onclick = function() {
-  location.href = "/public/equipment.html";
-};

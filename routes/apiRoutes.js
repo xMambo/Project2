@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.put("/api/maintenance", function(req, res) {
     db.Equipment.update(
       {
-        currentWeldCount: 5,
+        currentWeldCount: 0,
         maintenanceDate: req.body.maintenanceDate
       },
       {
