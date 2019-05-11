@@ -1,7 +1,7 @@
 $.get("/api/equipment", function(data) {
-    if (data.length !== 0) {
+  if (data.length !== 0) {
       for (var i = 0; i < data.length; i++) {
-        var newRow = $("<tr>");
+      var newRow = $("<tr>");
   
         newRow.addClass("equipItem");
   
@@ -22,5 +22,5 @@ $.get("/api/equipment", function(data) {
           
       }
     }
-  });
+});
   
