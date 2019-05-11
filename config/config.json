@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "123456789",
-    "database": "equipmentpm_db",
-    "host": "localhost",
+    "username": "ldzx3ihnkw97eikm",
+    "password": "i6jvs5q4jm0h9qew",
+    "database": "toz78zb3vlc6vb45",
+    "host": "vhw3t8e71xdz9k14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
