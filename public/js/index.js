@@ -1,6 +1,6 @@
 $.get("/api/equipment", function(data) {
   if (data.length !== 0) {
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < 6; i++) {
       var newRow = $("<tr>");
 
       newRow.addClass("equipItem");
