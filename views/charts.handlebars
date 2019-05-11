@@ -1,3 +1,14 @@
+<head>
+  <title>ChartJS - BarGraph</title>
+  <style type="text/css">
+    #chart-container {
+      width: 80%;
+      height: auto;
+      margin-left: 220px;
+    }
+  </style>
+</head>
+
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/"><span class="fas fa-tools"></span> CMMS</a>
     <input class="form-control form-control-dark w-100" style="visibility: hidden" type="text" placeholder="Search"
@@ -24,14 +35,14 @@
                             Equipment List
                         </a>
                     </li>
-                
+
                     <li class="nav-item">
                         <a class="nav-link active" href="/charts">
                             <span data-feather="bar-chart-2"></span>
                             Charts
                         </a>
                     </li>
-                
+
 
                 </ul>
 
@@ -71,62 +82,96 @@
                 </div>
             </div>
 
-        <h3>SP1</h3>
-            <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
 
-      
         </main>
     </div>
 </div>
 
+
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="/js/index.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<script src="../../assets/js/vendor/popper.min.js"></script>
-<script src="../../dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+<div id="chart-container">
+    <canvas id="mycanvas"></canvas>
+</div>
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://localhost:3000/api/equipment",
+            method: "GET",
+            success: function (data) {
+                console.log(data);
+                var equipment = [];
+                var currentWeldCount = [];
+                var allowedWelds = [];
+
+                for (var i in data) {
+                    equipment.push(data[i].equipment);
+                    currentWeldCount.push(data[i].currentWeldCount);
+                    allowedWelds.push(data[i].Rank.allowedWelds)
+
+                }
+
+                var chartdata = {
+                    labels: equipment,
+                    datasets: [{
+
+                        //dataset one
+                        label: 'Operations log',
+                        backgroundColor: '#EBCCD1', // red',
+                        borderColor: 'rgba(200, 200, 200, 0.75)',
+                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                        hoverBorderColor: 'rgba(200, 200, 200, 1)',
+                        data: currentWeldCount,
+
+                        //dataset two
+                        label: 'Operations log',
+                        backgroundColor: '#D6E9C6', // green,
+                        borderColor: 'rgba(200, 200, 200, 0.75)',
+                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                        hoverBorderColor: 'rgba(200, 200, 200, 1)',
+                        data: allowedWelds
+                    }]
+                };
+
+                var ctx = $("#mycanvas");
+
+                var barGraph = new Chart(ctx, {
+                    type: 'bar',
+                    data: chartdata,
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                stacked: true,
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }],
+                            xAxes: [{
+                                stacked: true,
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    });
+</script>
 
 <!-- Icons -->
 <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 <script>
     feather.replace()
 </script>
-            <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
-
-<!-- Graphs -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-<script>
-    var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            datasets: [{
-                data: [900, 1200, 877, 989, 1086, 1838, 938,],
-                lineTension: 0,
-                backgroundColor: 'transparent',
-                borderColor: '#007bff',
-                borderWidth: 4,
-                pointBackgroundColor: '#007bff'
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: false
-                    }
-                }]
-            },
-            legend: {
-                display: false,
-            }
-        }
-    });
-</script>
-</body>
-
-</html>
