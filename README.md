@@ -39,11 +39,6 @@ This CMMS application is designed to have data uploaded to mySql and keep track 
    ```
    $ npm install
    ```
-   
-### Application Design
-<p align="center">
-   <img src="samples/architecture.png?raw=true" alt="Application Design" width="800px" align="center" />
-</p>
 
 
 ### Using the Application Locally
@@ -58,9 +53,3 @@ This CMMS application is designed to have data uploaded to mySql and keep track 
    ```
 
 4. Navigate to localhost:3000 in the browser
-
-5. 
-
-
-
-   
