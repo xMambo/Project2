@@ -58,9 +58,3 @@ This CMMS application is designed to have data uploaded to mySql and keep track 
    ```
 
 4. Navigate to localhost:3000 in the browser
-
-5. 
-
-
-
-   
