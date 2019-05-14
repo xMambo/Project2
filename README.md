@@ -53,3 +53,22 @@ This CMMS application is designed to have data uploaded to mySql and keep track 
    ```
 
 4. Navigate to localhost:3000 in the browser
+
+## Contact
+#### Kevin Miller - Developer/Full-stack Web Software Developer (in training)
+* Homepage: 
+* e-mail: millerdesigncotn@gmail.com
+* Twitter: 
+* LinkedIn: 
+
+#### Brendan Gutleber - Developer/Full-stack Web Software Developer (in training)
+* Homepage: 
+* e-mail: gutleberb@gmail.com
+* Twitter: 
+* LinkedIn: 
+
+#### Clayton Seastrand - Developer/Full-stack Web Software Developer (in training)
+* Homepage: https://boogeybum.github.io/Bootstrap-Portfolio/
+* e-mail: cseastrand@gmail.com
+* Twitter: @cseastrand
+* LinkedIn: https://www.linkedin.com/in/clayton-seastrand-43a76861/
